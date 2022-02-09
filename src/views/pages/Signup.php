@@ -14,7 +14,7 @@
         <fieldset>
             <legend>Signup</legend>
          
-            <label for="name">Name</label>
+            <label for="name">Username</label>
             <input  name="nom" type="text" />
 
             <label for="mail" >Mail</label>
