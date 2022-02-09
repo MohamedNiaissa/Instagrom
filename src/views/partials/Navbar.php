@@ -1,12 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-
+ 
 
     <style>
         body{
@@ -39,7 +35,16 @@
     <nav>
         <ul>
             <li> <a href= "?p=Home">Home</a></li>
-            <li><a href= "?p=Login">Login</a></li>
+
+            <?php if(!empty($_SESSION)){
+                $person = $_SESSION['login'];
+              echo "<li><a href= '?p=Login'>$person</a></li>"."<li><a href= '?p=Logout'>Logout</a></li>";
+            }else{
+                echo '<li><a href= "?p=Login">Login</a></li>';
+            }
+            ?>        
+
+           
             <li><a href= "?p=Contact">Contact</a></li>
             <li><a href= "?p=Signup">Signup</a></li>
         </ul>

@@ -2,9 +2,7 @@
 
 
     // include (__DIR__."/../../src/db.php");
-
     session_start();
-
 
     $logEmail = $_POST["logEmail"];
     $logPass = $_POST["logPass"];
@@ -14,12 +12,10 @@
     // ici, ":id" est une future variable qui sera injectée au moment de l'executer
  
     $sql = 'SELECT * FROM users WHERE mail = :mail AND password = :password' ;
-    // $sqlMdp = 'SELECT * FROM users WHERE password = :password';
 
     // on prepare le requete
 
     $query = $db->prepare($sql);
-    // $queryMdp = $db->prepare($sqlMdp);
 
     // on l'execute en injectant nos variables
     var_dump($logPass);
@@ -37,10 +33,12 @@
     if($data == FALSE){
         echo "Veuillez réesayer";
         header("Location; /?p=Login");
+        exit;
     }else{
        // sleep(2);
+       $_SESSION["login"] = $logEmail ;
         header("Location: /?p=Home");
-        exit;
+        //echo $_SESSION;
     }
 
     ?>
