@@ -3,6 +3,8 @@
 
     // include (__DIR__."/../../src/db.php");
 
+    session_start();
+
 
     $logEmail = $_POST["logEmail"];
     $logPass = $_POST["logPass"];
@@ -11,7 +13,7 @@
 
     // ici, ":id" est une future variable qui sera injectée au moment de l'executer
  
-    $sql = 'SELECT * FROM users WHERE email = :email AND password = :password' ;
+    $sql = 'SELECT * FROM users WHERE mail = :mail AND password = :password' ;
     // $sqlMdp = 'SELECT * FROM users WHERE password = :password';
 
     // on prepare le requete
@@ -20,10 +22,9 @@
     // $queryMdp = $db->prepare($sqlMdp);
 
     // on l'execute en injectant nos variables
-
-
+    var_dump($logPass);
     $query->execute([
-        ":email" => $logEmail,
+        ":mail" => $logEmail,
         ":password" => $logPass
     ]);
 

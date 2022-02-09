@@ -6,7 +6,6 @@
     $email = $_POST["email"];
     $mdp = $_POST["motdp"];
 
-    $mdp = hash("sha256",$mdp);
     include (__DIR__."/../../exemple_insert.php");
 
 ?>
