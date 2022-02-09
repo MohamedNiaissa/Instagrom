@@ -18,10 +18,10 @@
             <input  name="nom" type="text" />
 
             <label for="mail" >Mail</label>
-            <input name="email" type="email" />
+            <input name="email" type="email" required/>
 
             <label for="Mdp" >Mdp</label>
-            <input name="motdp" type="password" />
+            <input name="motdp" type="password" required />
 
             <button type="submit">Créer mon compte</button>
 

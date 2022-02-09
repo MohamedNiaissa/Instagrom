@@ -38,7 +38,7 @@
 
             <?php if(!empty($_SESSION)){
                 $person = $_SESSION['login'];
-              echo "<li><a href= '?p=Login'>$person</a></li>"."<li><a href= '?p=Logout'>Logout</a></li>";
+              echo "<li><a href= '?p=Profil'>$person</a></li>"."<li><a href= '?p=Logout'>Logout</a></li>";
             }else{
                 echo '<li><a href= "?p=Login">Login</a></li>';
             }
