@@ -17,7 +17,6 @@ var_dump($dataImgPost);
 foreach ($dataImgPost as $clef=>$val){
         foreach($val as $key=> $value){
             echo "<div> <img src = $value height='420' width='420' ><img/> </div>";
-
         }
 };
 

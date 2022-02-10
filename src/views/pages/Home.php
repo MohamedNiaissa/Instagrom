@@ -17,6 +17,15 @@
         input{
             margin: 10px;
         }
+
+        div{
+            display: flex;
+            justify-content:center;
+        }
+
+        img{
+            margin:20px;
+        }
     </style>
 
 </head>
@@ -31,7 +40,8 @@
         <input type="SUBMIT" value="Search!"> 
      </form>
 
-    <?php include(__DIR__."/../partials/Footer.html");?>
+    <?php include(__DIR__."/../../../www/actions/home.php");?> 
+    <!-- <?php include(__DIR__."/../partials/Footer.html");?> -->
 
 </body>
 </html>
