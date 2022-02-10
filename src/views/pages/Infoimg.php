@@ -29,8 +29,6 @@
 <?php 
 $urlImgInfo = substr($urlImgInfo,4);
 $_SESSION["urlImgInfo"] = $urlImgInfo;
-
-
 ?>
 
 <div class="divimginfo">
@@ -40,11 +38,11 @@ $_SESSION["urlImgInfo"] = $urlImgInfo;
 <form action="/actions/infoimg.php" method="POST">
        <legend>Commentaire</legend> 
        <textarea name="commentairePost" id="" cols="30" rows="4"></textarea> 
-        <input type="submit" value="Commenter">
+        <input type="submit" value="Commenter" required>
 </form>
 
 <?php try{
-    echo "<p>".$_SESSION["comm"]."</p>";
+    // echo "<p>".$_SESSION["comm"]."</p>";
 }catch(Exception $e){
 }
 
@@ -66,19 +64,24 @@ $IdImg = substr($IdImg,2);
 
 $_SESSION['IdimgInfo'] = $IdImg;
 
-$dataShowCom = $_SESSION["listOfComment"] ;
-print_r($_SESSION);
 
-foreach ($dataShowCom as $clef=>$val){
-    foreach($val as $key=> $value){
-        echo "<div> <p>". $value. "<p/> </div>";
+
+try{
+    foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
+        foreach($val as $key=> $value){
+           echo "<div style='text-align:center'>commentaire : <p>". $value. "<p/> </div>";
+        };
     }
+}catch(Exception $e){
+    echo "Hello"."$e";
 }
 
 ?>
 
 
 <!-- <?php include(__DIR__."/../partials/Footer.html");?> -->
+
+
 
 </body>
 </html>

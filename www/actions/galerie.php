@@ -11,14 +11,14 @@ $sqlimgPost = 'SELECT imageURL FROM postImage WHERE userID = "'.$userID.'"';
 $queryimgPost = $db->prepare($sqlimgPost);
 $queryimgPost->execute([]);
 $dataImgPost = $queryimgPost->fetchALL(PDO::FETCH_ASSOC);
-$_SESSION["postImage"] = $dataImgPost["imageURL"];
+// $_SESSION["postImage"] = $dataImgPost["imageURL"];
 
-var_dump($dataImgPost);
+
+// var_dump($dataImgPost);
 foreach ($dataImgPost as $clef=>$val){
         foreach($val as $key=> $value){
             echo "<div> <img src = $value height='420' width='420' ><img/> </div>";
         }
 };
-
 
 ?>

@@ -7,7 +7,6 @@ session_start();
     
 // var_dump($_SESSION);
 $commentaire = $_POST["commentairePost"]  ;
-$_SESSION["comm"] = $commentaire;
 
 include __DIR__."/../../src/db.php";
 
@@ -66,7 +65,7 @@ $id = $db->lastInsertId();
 
 //Affichage des commentaires
 
-$sqlShowCom = 'SELECT commentText FROM comment WHERE imageID = :imageID';  //
+$sqlShowCom = 'SELECT commentText FROM comment WHERE imageID = :imageID';  
 $queryShowCom = $db->prepare($sqlShowCom);
 $queryShowCom->execute([
     ':imageID' => $_SESSION["IdimgInfo"]
@@ -76,24 +75,23 @@ $dataShowCom = $queryShowCom->fetchALL(PDO::FETCH_ASSOC);
 $_SESSION["comm".$_SESSION["IdimgInfo"]] = $dataShowCom;
 $commentairePost = $_SESSION["comm".$_SESSION["IdimgInfo"]];
 
-foreach ($dataShowCom as $clef=>$val){
+// foreach ($dataShowCom as $clef=>$val){
+//     foreach($val as $key=> $value){
+//         echo "<div> <p>". $value. "<p/> </div>";
+//     }
+// }
+
+foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
     foreach($val as $key=> $value){
         echo "<div> <p>". $value. "<p/> </div>";
     }
 }
 
-$_SESSION["listOfComment"] = $dataShowCom;
-// print_r($commentairePost);
-// print_r($_SESSION);
-
-print_r($dataShowCom);
-
-// $_SESSION["userID"] = $dataShowCom["userID"];
-// print_r($_SESSION);
+// $_SESSION["listOfComment"] = $dataShowCom;
 
 
-
-
+print_r($commentairePost);
+print_r($_SESSION)
 ?>
 
 
