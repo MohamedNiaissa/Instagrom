@@ -7,15 +7,29 @@
     <title>Home</title>
 
     <link rel="import" href="src/views/partials/Navbar.html" />
+    <style>
+        .form{
+            display: flex;
+            flex-direction:column;
+            /* width: 30%; */
+            align-items:flex-end;
+        }
+        input{
+            margin: 10px;
+        }
+    </style>
 
 </head>
 <body>
     <?php include(__DIR__."/../partials/Navbar.php");
     ?>
-
+ 
 
     <h1>Bienvenu dans le Home</h1>
-    
+    <form class="form" method="POST" action=""> 
+        Rechercher un tag : <input type="text" name="recherche">
+        <input type="SUBMIT" value="Search!"> 
+     </form>
 
     <?php include(__DIR__."/../partials/Footer.html");?>
 
