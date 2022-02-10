@@ -13,7 +13,7 @@ include __DIR__."/../../src/db.php";
         foreach ($dataImgHome as $clef=>$val){
             foreach($val as $key=> $value){
                 $Path = '?p=Infoimg?'.$i.'?'.$value;
-                echo "<div> <a href= '$Path''> <img src = $value height='420' width='420' ><img/></a> </div>";
+                echo "<div> <a href= '$Path'> <img src = $value height='420' width='420' ><img/></a> </div>";
                 echo "<form action='/action/likecount.php' ><input type='checkbox' />";
                 array_push($tableAllImg,$i); 
                 $i++;
@@ -22,7 +22,7 @@ include __DIR__."/../../src/db.php";
     }else{
         foreach ($dataImgHome as $clef=>$val){
             foreach($val as $key=> $value){
-                echo "<div> <img src = $value height='420' width='420' ><img/> </div>";
+                echo "<div> <img src = $value height='420' width='420'><img/> </div>";
             }
     };
     
