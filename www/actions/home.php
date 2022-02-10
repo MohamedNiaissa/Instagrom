@@ -14,11 +14,12 @@ include __DIR__."/../../src/db.php";
             foreach($val as $key=> $value){
                 $Path = '?p=Infoimg?'.$i.'?'.$value;
                 echo "<div> <a href= '$Path''> <img src = $value height='420' width='420' ><img/></a> </div>";
-                echo "<form action='/action/likecount.php' ><input type='checkbox' />";
+                // echo "<form action='/actions/likecount.php' ><input type='checkbox' name='checkBox' /> <input type='submit'value='like' /> ";
                 array_push($tableAllImg,$i); 
                 $i++;
             }
-    };
+    };   echo "<form action='/actions/likecount.php' ><input type='checkbox' name='checkBox' /> <input type='submit'value='like' /> ";
+
     }else{
         foreach ($dataImgHome as $clef=>$val){
             foreach($val as $key=> $value){

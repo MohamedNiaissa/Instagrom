@@ -64,8 +64,6 @@ $IdImg = substr($IdImg,2);
 
 $_SESSION['IdimgInfo'] = $IdImg;
 
-
-
 try{
     foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
         foreach($val as $key=> $value){
