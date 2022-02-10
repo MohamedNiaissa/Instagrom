@@ -18,7 +18,7 @@
     $query = $db->prepare($sql);
 
     // on l'execute en injectant nos variables
-    var_dump($logPass);
+    //var_dump($logPass);
     $query->execute([
         ":mail" => $logEmail,
         ":password" => $logPass
@@ -36,8 +36,12 @@
         exit;
     }else{
        // sleep(2);
-       $_SESSION["login"] = $logEmail ;
-        header("Location: /?p=Home");
+        $_SESSION["login"] = $logEmail;
+        $sqlId = 'SELECT * FROM users WHERE userID = 1';
+        $queryId = $db->prepare($sqlId);
+        $dataId = $queryId->fetch(PDO::FETCH_ASSOC);
+        var_dump($dataId);
+//        header("Location: /?p=Home");
         //echo $_SESSION;
     }
 
