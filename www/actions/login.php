@@ -27,6 +27,7 @@
     // on recupere les données de la requete, sous forme de tableau associatif
   
     $data = $query->fetch(PDO::FETCH_ASSOC);
+    
     // $dataMdp = $queryMdp->fetch(PDO::FETCH_ASSOC);
 
 

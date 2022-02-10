@@ -36,8 +36,9 @@
         <ul>
             <li> <a href= "?p=Home">Home</a></li>
 
+
             <?php if(!empty($_SESSION)){
-                $person = $_SESSION['login'];
+               $person = $_SESSION['login'];
               echo "<li><a href= '?p=Profil'>$person</a></li>"."<li><a href= '?p=Logout'>Logout</a></li>";
             }else{
                 echo '<li><a href= "?p=Login">Login</a></li>';

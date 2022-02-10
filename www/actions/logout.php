@@ -1,6 +1,5 @@
 <?php
 
-
 $_SESSION = array();
 
 ?>
