@@ -35,15 +35,14 @@ $queryFetchImgIdLink->execute([
 ]);
 $dataFetchImgIdLink = $queryFetchImgIdLink->fetchALL(PDO::FETCH_ASSOC);
 
-// var_dump($dataFetchImgIdLink);
 $i=0;
-var_dump("dataFetchTag",$dataFetchTag);
 
+echo "<h1 style = 'text-align:center'> Tag : ".$_POST['recherche'] ." </h1>";
 foreach ($dataFetchTag as $clef=>$val){
     foreach($val as $key => $value){}
     $id = $dataFetchImgIdLink[$clef]['imageID'];
     $imgUrl = $dataFetchUrllink[$clef]['imageURL'];
-    echo "<div> <a href ='/p=Home?p=Infoimg?$id?$imgUrl' > <img src = '". $value. "' style = 'width:180px' /> </a> </div>";
+    echo "<div> <a href ='/p=Home?p=Infoimg?$id?$imgUrl' > <img src = '". $value. "' style = 'width:180px; margin:20px;text-align:center' /> </a> </div>";
 }
 
 // $_SESSION["IdUserImg"] = $data["userID"];
