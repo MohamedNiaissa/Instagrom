@@ -5,11 +5,14 @@ include __DIR__."/../../src/db.php";
     $queryImgHome = $db->prepare($sqlImgHome);
     $queryImgHome->execute([]);
     $dataImgHome = $queryImgHome->fetchALL(PDO::FETCH_ASSOC);
+  
     if(!empty($_SESSION)){
         foreach ($dataImgHome as $clef=>$val){
             foreach($val as $key=> $value){
-                echo "<div> <a href='#'> <img src = $value height='420' width='420' ><img/></a> </div>";
+                $Path = '?p=Infoimg?'.$value;
+                echo "<div> <a href= '$Path''> <img src = $value height='420' width='420' ><img/></a> </div>";
             }
+
     };
     }else{
         foreach ($dataImgHome as $clef=>$val){
