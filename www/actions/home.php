@@ -1,18 +1,22 @@
 <?php
 include __DIR__."/../../src/db.php";
-
+    $tableAllImg = array();
+    $i=1;
     $sqlImgHome = 'SELECT imageURL FROM postImage';  
     $queryImgHome = $db->prepare($sqlImgHome);
     $queryImgHome->execute([]);
     $dataImgHome = $queryImgHome->fetchALL(PDO::FETCH_ASSOC);
+
+    
   
     if(!empty($_SESSION)){
         foreach ($dataImgHome as $clef=>$val){
             foreach($val as $key=> $value){
-                $Path = '?p=Infoimg?'.$value;
+                $Path = '?p=Infoimg?'.$i.'?'.$value;
                 echo "<div> <a href= '$Path''> <img src = $value height='420' width='420' ><img/></a> </div>";
+                array_push($tableAllImg,$i); 
+                $i++;
             }
-
     };
     }else{
         foreach ($dataImgHome as $clef=>$val){

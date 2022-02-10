@@ -43,7 +43,6 @@
         $queryId->execute([]);
         $dataId = $queryId->fetch(PDO::FETCH_ASSOC);
         $_SESSION["userID"] = $dataId["userID"];
-
         print_r($_SESSION);
         //header("Location: /?p=Home");
         //echo $_SESSION;

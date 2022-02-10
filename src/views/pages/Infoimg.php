@@ -26,20 +26,57 @@
 <?php include(__DIR__."/../partials/Navbar.php");?>
 
     <h1>Information</h1>
-<?php include (__DIR__."/../../../www/actions/infoimg.php");
-$urlImgInfo = substr($urlImgInfo,2);
+<?php 
+$urlImgInfo = substr($urlImgInfo,4);
+$_SESSION["urlImgInfo"] = $urlImgInfo;
+
+
 ?>
 
 <div class="divimginfo">
     <?= "<img src='$urlImgInfo' height='320' width='320' alt = 'Le chargement de l'image à échoué' >" ?>
 </div>
 
-<form action="" method="POST">
-    
+<form action="/actions/infoimg.php" method="POST">
        <legend>Commentaire</legend> 
        <textarea name="commentairePost" id="" cols="30" rows="4"></textarea> 
         <input type="submit" value="Commenter">
 </form>
+
+<?php try{
+    echo "<p>".$_SESSION["comm"]."</p>";
+}catch(Exception $e){
+}
+
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+    $url = "https://";   
+else  
+    $url = "http://";   
+// Append the host(domain name, ip) to the URL.   
+$url.= $_SERVER['HTTP_HOST'];   
+
+// Append the requested resource location to the URL   
+$url.= $_SERVER['REQUEST_URI'];    
+ 
+// echo $url."<br/>";  
+
+$IdImg = strstr($url, 'g?');
+$IdImg = strstr($IdImg, '?h',true);
+$IdImg = substr($IdImg,2);
+
+$_SESSION['IdimgInfo'] = $IdImg;
+
+$dataShowCom = $_SESSION["listOfComment"] ;
+print_r($_SESSION);
+
+foreach ($dataShowCom as $clef=>$val){
+    foreach($val as $key=> $value){
+        echo "<div> <p>". $value. "<p/> </div>";
+    }
+}
+
+?>
+
 
 <!-- <?php include(__DIR__."/../partials/Footer.html");?> -->
 
