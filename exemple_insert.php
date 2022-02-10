@@ -7,7 +7,6 @@ $sql = 'INSERT INTO users(username, mail, password,isAdmin) VALUES (:username, :
 $query = $db->prepare($sql);
 
 $query->execute([
-
 	':username' => $nom,
 	':mail' => $email,
 	':password' => $mdp,

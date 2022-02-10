@@ -36,12 +36,12 @@
             <legend>Poster</legend>
             <div class="linkimg">
                 <label>lien de l'image</label>
-                <input type="text"  name= "lienImg" />
+                <input type="text"  name= "lienImg" required />
             </div>
 
             <div class="title">
                 <label for="txttitle">Titre</label>
-                <input type="text" name="titre" />
+                <input type="text" name="titre" required />
             </div>
 
             <div class="decri">
@@ -53,6 +53,8 @@
                 <label for="tag">Tag</label>
                 <input type="text" name = "tag" />                
             </div>
+
+            <input type="submit">
 
         </fieldset>
 

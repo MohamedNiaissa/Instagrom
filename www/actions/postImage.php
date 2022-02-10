@@ -1,6 +1,8 @@
 <?php
 
-    header("Location: /?p=Profil");
+    // header("Location: /?p=Profil");
+
+    session_start();
 
     include (__DIR__."/../../src/db.php");
 
@@ -19,7 +21,7 @@
 
         ':likescount' => 0,
         ':imageURL' => $lienImg,
-        ':userID' => 1,
+        ':userID' => $_SESSION["userID"],
         ':titre' => $titre,
         ':description' => $desc,
         ':tag' =>$tag

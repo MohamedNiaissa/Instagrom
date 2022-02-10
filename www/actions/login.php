@@ -33,16 +33,19 @@
 
     if($data == FALSE){
         echo "Veuillez réesayer";
-        header("Location; /?p=Login");
+        header("Location: /?p=Login");
         exit;
     }else{
        // sleep(2);
         $_SESSION["login"] = $logEmail;
-        $sqlId = 'SELECT * FROM users WHERE userID = 1';
+        $sqlId = 'SELECT userID FROM users WHERE mail = "'.$logEmail.'"';  //
         $queryId = $db->prepare($sqlId);
+        $queryId->execute([]);
         $dataId = $queryId->fetch(PDO::FETCH_ASSOC);
-        var_dump($dataId);
-//        header("Location: /?p=Home");
+        $_SESSION["userID"] = $dataId["userID"];
+
+        print_r($_SESSION);
+        //header("Location: /?p=Home");
         //echo $_SESSION;
     }
 
