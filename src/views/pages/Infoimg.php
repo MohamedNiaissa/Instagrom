@@ -12,13 +12,14 @@
         form{
             display:flex;
             flex-direction:column;
-        align-items:center;
+            align-items:center;
         }
 
         textarea,input{
             width:20%;
         }
 
+      
         
     </style>
 </head>

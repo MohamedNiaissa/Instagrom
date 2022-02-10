@@ -30,12 +30,11 @@
 
 </head>
 <body>
-    <?php include(__DIR__."/../partials/Navbar.php");
-    ?>
+    <?php include(__DIR__."/../partials/Navbar.php");?>
  
 
     <h1>Bienvenu dans le Home</h1>
-    <form class="form" method="POST" action=""> 
+    <form class="form" method="POST" action="/actions/tag.php"> 
         Rechercher un tag : <input type="text" name="recherche">
         <input type="SUBMIT" value="Search!"> 
      </form>

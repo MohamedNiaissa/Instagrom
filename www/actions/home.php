@@ -23,7 +23,7 @@ include __DIR__."/../../src/db.php";
     }else{
         foreach ($dataImgHome as $clef=>$val){
             foreach($val as $key=> $value){
-                echo "<div> <img src = $value height='420' width='420' ><img/> </div>";
+                echo "<div> <img src = $value height='420' width='420'><img/> </div>";
             }
     };
     
