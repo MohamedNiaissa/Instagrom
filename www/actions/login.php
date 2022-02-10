@@ -38,25 +38,14 @@
     }else{
        // sleep(2);
         $_SESSION["login"] = $logEmail;
-<<<<<<< Updated upstream
         $sqlId = 'SELECT userID FROM users WHERE mail = "'.$logEmail.'"';  //
-=======
-
-        
-        $sqlId = 'SELECT * FROM users WHERE userID = 1';
->>>>>>> Stashed changes
         $queryId = $db->prepare($sqlId);
         $queryId->execute([]);
         $dataId = $queryId->fetch(PDO::FETCH_ASSOC);
-<<<<<<< Updated upstream
         $_SESSION["userID"] = $dataId["userID"];
 
         print_r($_SESSION);
         //header("Location: /?p=Home");
-=======
-        var_dump($dataId);
-//        header("Location: /?p=Home");@
->>>>>>> Stashed changes
         //echo $_SESSION;
     }
 
