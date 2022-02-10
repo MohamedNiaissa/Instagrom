@@ -54,10 +54,13 @@
                 <input type="text" name = "tag" />                
             </div>
 
+<<<<<<< Updated upstream
             <input type="submit">
 
+=======
+            <input type="submit">Poster</input>
+>>>>>>> Stashed changes
         </fieldset>
-
         </form>
     </div>
     

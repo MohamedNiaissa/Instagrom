@@ -4,7 +4,7 @@
 
     session_start();
 
-    include (__DIR__."/../../src/db.php");
+    include __DIR__."/../../src/db.php";
 
     $lienImg = $_POST["lienImg"];
     $titre = $_POST["titre"];
@@ -13,7 +13,7 @@
 
 
 
-    $sql = 'INSERT INTO postImage(likescount, imageURL,userID,titre,description,tag) VALUES (:likescount, :imageURL,:userID,:titre,:description,:tag)';
+    $sql = 'INSERT INTO postImage(likescount, imageURL, userID, titre, description, tag) VALUES (:likescount, :imageURL, :userID, :titre, :description, :tag)';
 
     $query = $db->prepare($sql);
 

@@ -32,7 +32,7 @@
     ?>
 
     <div class="lienImage">
-        <a href="#" class = "lienP"> Accéder à ma gallerie </a>
+        <a href="/?p=Galerie" class = "lienP"> Accéder à ma gallerie </a>
         <a href="/?p=FormPhoto" class = "lienP"> Poster une photo </a>
     </div>
    

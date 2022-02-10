@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/./src/db.php';
 
-$sql = 'INSERT INTO users(username, mail, password,isAdmin) VALUES (:username, :mail, :password,:isAdmin)';
+$sql = 'INSERT INTO users(username, mail, password,isAdmin) VALUES (:username, :mail, :password, :isAdmin)';
 
 $query = $db->prepare($sql);
 
