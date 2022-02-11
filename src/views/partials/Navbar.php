@@ -48,6 +48,20 @@
            
             <li><a href= "?p=Contact">Contact</a></li>
             <li><a href= "?p=Signup">Signup</a></li>
+            <?php 
+            if(!empty($_SESSION)){
+                require __DIR__."/../../../src/db.php";
+                $sqlAdmin = 'SELECT isAdmin FROM users WHERE mail = :mail ';  //
+                $queryAdmin = $db->prepare($sqlAdmin);
+                $queryAdmin->execute([
+                    ':mail' => $person 
+                ]);
+                $dataAdmin = $queryAdmin->fetch(PDO::FETCH_ASSOC);
+                if($dataAdmin["isAdmin"] === "TRUE"){
+                    echo '<li> Admin </li>';
+                }
+            }
+            ?>
         </ul>
     </nav>
 </body>
