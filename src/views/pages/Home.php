@@ -26,6 +26,19 @@
         img{
             margin:20px;
         }
+
+        #search{
+            margin-right: 22px;
+        }
+
+
+        #submit{
+            margin-right: 55px;
+        }
+
+        form{
+            margin-right: 98px;
+        }
     </style>
 
 </head>
@@ -35,8 +48,9 @@
 
     <h1>Instagrom</h1>
     <form class="form" method="POST" action="/actions/tag.php"> 
-        Rechercher un tag : <input type="text" name="recherche">
-        <input type="SUBMIT" value="Search!"> 
+        <p id = "search">  Rechercher un tag :</p>
+        <input type="text" name="recherche">
+        <input type="SUBMIT" id="submit" value="Search!"> 
      </form>
 
     <?php include(__DIR__."/../../../www/actions/home.php");?> 
