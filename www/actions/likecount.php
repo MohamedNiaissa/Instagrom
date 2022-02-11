@@ -1,14 +1,11 @@
 <?php
 
-if(isset($_POST['checkBox'])){
-    echo "checkeddd";
-}else{
-    echo "unchecked";
-}
-// if(filter_has_var(INPUT_POST,'checkBox')) {
-//     echo "checkeddd";
-// }else{
-//     echo "unchecked";
+require_once __DIR__."/../../src/db.php";
 
-// }
+$sqlFetchlikes = 'SELECT likesCount FROM postImage WHERE imageID = :imageID';  
+$sqlFetchlikes = $db->prepare($sqlFetchlikes);
+$queryFetchlikes->execute([
+    ':imageID' => $_POST['recherche']
+]);
+$dataFetchlikes = $queryFetchlikes->fetch(PDO::FETCH_ASSOC);
 ?>

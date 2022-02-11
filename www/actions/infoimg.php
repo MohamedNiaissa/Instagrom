@@ -19,7 +19,6 @@ $dataImgGrp = $queryImgGrp->fetchALL(PDO::FETCH_ASSOC);
 
 //fetch userID
 
-
 $sql = 'SELECT userID FROM postImage WHERE imageID = :imageID ' ;
 
 
@@ -75,11 +74,6 @@ $dataShowCom = $queryShowCom->fetchALL(PDO::FETCH_ASSOC);
 $_SESSION["comm".$_SESSION["IdimgInfo"]] = $dataShowCom;
 $commentairePost = $_SESSION["comm".$_SESSION["IdimgInfo"]];
 
-// foreach ($dataShowCom as $clef=>$val){
-//     foreach($val as $key=> $value){
-//         echo "<div> <p>". $value. "<p/> </div>";
-//     }
-// }
 
 foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
     foreach($val as $key=> $value){

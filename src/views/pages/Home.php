@@ -33,7 +33,7 @@
     <?php include(__DIR__."/../partials/Navbar.php");?>
  
 
-    <h1>Bienvenu dans le Home</h1>
+    <h1>Instagrom</h1>
     <form class="form" method="POST" action="/actions/tag.php"> 
         Rechercher un tag : <input type="text" name="recherche">
         <input type="SUBMIT" value="Search!"> 

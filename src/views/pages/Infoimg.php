@@ -65,6 +65,8 @@ $IdImg = substr($IdImg,2);
 
 $_SESSION['IdimgInfo'] = $IdImg;
 
+echo "<form action='actions/likecount.php'> <input style ='width:5%' type='submit'value='like' />  ";
+
 try{
     foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
         foreach($val as $key=> $value){
