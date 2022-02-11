@@ -67,15 +67,35 @@ $_SESSION['IdimgInfo'] = $IdImg;
 
 echo "<form action='actions/likecount.php'> <input style ='width:5%' type='submit'value='like' />  ";
 
-try{
-    foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
-        foreach($val as $key=> $value){
-           echo "<div style='text-align:center'>commentaire : <p>". $value. "<p/> </div>";
-        };
+
+require __DIR__."/../../../src/db.php";
+
+$sqlShowCom = 'SELECT commentText FROM comment WHERE imageID = :imageID';  
+$queryShowCom = $db->prepare($sqlShowCom);
+$queryShowCom->execute([
+    ':imageID' => $_SESSION["IdimgInfo"]
+]);
+$dataShowCom = $queryShowCom->fetchALL(PDO::FETCH_ASSOC);
+
+$_SESSION["comm".$_SESSION["IdimgInfo"]] = $dataShowCom;
+$commentairePost = $_SESSION["comm".$_SESSION["IdimgInfo"]];
+
+
+foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
+    foreach($val as $key=> $value){
+        echo "<div> <p>". $value. "<p/> </div>";
     }
-}catch(Exception $e){
-    echo "Hello"."$e";
 }
+
+// try{
+//     foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
+//         foreach($val as $key=> $value){
+//            echo "<div style='text-align:center'>commentaire : <p>". $value. "<p/> </div>";
+//         };
+//     }
+// }catch(Exception $e){
+//     echo "Hello"."$e";
+// }
 
 ?>
 
