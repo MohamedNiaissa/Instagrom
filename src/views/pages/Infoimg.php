@@ -83,19 +83,11 @@ $commentairePost = $_SESSION["comm".$_SESSION["IdimgInfo"]];
 
 foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
     foreach($val as $key=> $value){
+        echo "Commentaire : ";
         echo "<div> <p>". $value. "<p/> </div>";
     }
 }
 
-// try{
-//     foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
-//         foreach($val as $key=> $value){
-//            echo "<div style='text-align:center'>commentaire : <p>". $value. "<p/> </div>";
-//         };
-//     }
-// }catch(Exception $e){
-//     echo "Hello"."$e";
-// }
 
 ?>
 
