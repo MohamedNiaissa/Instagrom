@@ -52,7 +52,22 @@ if ($pos !== false) {
 <div class="divimginfo">
     <?= "<img src='$urlImgInfo' height='320' width='320' alt = 'Le chargement de l'image à échoué' >" ?>
 </div>
+<?= $userID = $_SESSION['userID'];
+$imgID = $_SESSION['IdimgInfo']; 
+// var_dump( $_SESSION)
+?>
 
+<?php
+
+$sqlLike = 'SELECT COUNT(likesID) FROM likes WHERE imageID = :imgID';
+    $likeFetch = $db->prepare($sqlLike);
+    $likeFetch->execute([
+        ':imgID' => $imgID
+    ]);
+    $dataLikes = $likeFetch->fetch(PDO::FETCH_ASSOC);
+    var_dump($dataLikes);
+?>
+<?= '<p> like:'.$dataLikes['COUNT(likesID)'].'</p>'?>
 <form action="/actions/infoimg.php" method="POST">
        <legend>Commentaire</legend> 
        <textarea name="commentairePost" id="" cols="30" rows="4"></textarea> 
@@ -84,8 +99,6 @@ $IdImg = substr($IdImg,2);
 $_SESSION['IdimgInfo'] = $IdImg;
 
 echo "<form action='actions/likecount.php'> <input style ='width:5%' type='submit'value='like' />  ";
-
-
 require __DIR__."/../../../src/db.php";
 
 $sqlShowCom = 'SELECT commentText FROM comment WHERE imageID = :imageID';  
