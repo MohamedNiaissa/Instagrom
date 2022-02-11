@@ -28,8 +28,25 @@
 
     <h1>Information</h1>
 <?php 
+
+
 $urlImgInfo = substr($urlImgInfo,4);
-$_SESSION["urlImgInfo"] = $urlImgInfo;
+
+$findme   = '?';
+$pos = strpos($urlImgInfo, $findme);
+
+// Notez notre utilisation de ===.  == ne fonctionnerait pas comme attendu
+// car la position de 'a' est la 0-ième (premier) caractère.
+if ($pos !== false) {
+    if($pos == 0){
+        $urlImgInfo = substr($urlImgInfo,1);
+        $_SESSION["urlImgInfo"] = $urlImgInfo;
+    }
+}
+// if(str_contains($urlImgInfo,"?")){
+//     $urlImgInfo = substr($urlImgInfo,1);
+
+// };
 ?>
 
 <div class="divimginfo">
@@ -42,8 +59,9 @@ $_SESSION["urlImgInfo"] = $urlImgInfo;
         <input type="submit" value="Commenter" required>
 </form>
 
-<?php try{
-    // echo "<p>".$_SESSION["comm"]."</p>";
+<?php 
+try{
+// echo "<p>".$_SESSION["comm"]."</p>";
 }catch(Exception $e){
 }
 

@@ -13,13 +13,12 @@
 
 
 
-    $sql = 'INSERT INTO postImage(likescount, imageURL, userID, titre, description, tag) VALUES (:likescount, :imageURL, :userID, :titre, :description, :tag)';
+    $sql = 'INSERT INTO postImage(imageURL, userID, titre, description, tag) VALUES (:imageURL, :userID, :titre, :description, :tag)';
 
     $query = $db->prepare($sql);
 
     $query->execute([
 
-        ':likescount' => 0,
         ':imageURL' => $lienImg,
         ':userID' => $_SESSION["userID"],
         ':titre' => $titre,
