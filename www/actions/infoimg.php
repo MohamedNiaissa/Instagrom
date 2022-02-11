@@ -33,6 +33,7 @@ $sql = 'SELECT userID FROM postImage WHERE imageID = :imageID ' ;
     
     if($data == FALSE){
         echo "Veuillez réesayer";
+        var_dump("userID",$_SESSION['IdimgInfo']);
         exit;
     }else{
         var_dump("userID",$data);
@@ -58,10 +59,6 @@ $query->execute([
 
 echo "Données insérées avec succès";
 
-// on récupère le dernier id inséré dans la db (si besoin...)
-$id = $db->lastInsertId();
-
-
 //Affichage des commentaires
 
 $sqlShowCom = 'SELECT commentText FROM comment WHERE imageID = :imageID';  
@@ -82,7 +79,6 @@ foreach ($_SESSION["comm".$_SESSION["IdimgInfo"]] as $clef=>$val){
 }
 
 // $_SESSION["listOfComment"] = $dataShowCom;
-
 
 print_r($commentairePost);
 print_r($_SESSION)
